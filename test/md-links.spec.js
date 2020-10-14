@@ -1,36 +1,26 @@
 const mdLinks = require('../index.js');
 
+describe('mdLinks', () => {
+  it('Deberia ser una funcion', () => {
+    expect(typeof(mdLinks)).toBe('function');
+  });
 
-describe('mdLinks.validarRuta', () => {
-
-  it('debe retornar que el link ingresado es valido para lectura', () => {
-    return mdLinks.validarRuta("https://github.com/karlaguaita/bog001-md-links/blob/master/README.md").then((res) => {
-      expect(res).toMatch('Link correcto');
+  it('Debe retornar un arreglo de un solo elemento', () => {
+    return mdLinks("README.md").then((res) => {
+      expect(res.length).toStrictEqual(1);
     });
   });
 
-  it('debe retornar que el link ingresado no es valido para lectura', () => {
-    return mdLinks.validarRuta("https://karlaguaitatest.com").then((res) => {
-      expect(res).toMatch('Error');
+  it('Debe retornar un arreglo con el siguiente elemento', () => {
+    return mdLinks("README.md").then((res) => {
+      expect(res).toStrictEqual([{"file": "README.md", "href": "https://www.youtube.com/watch?v=lPPgY3HLlhQ", "text": "Recursión."}]);
     });
   });
 
-});
- 
-describe('mdLinks.leerArchivo', () => {
-
-  it ('debe leer un archivo en el link y retornar las url que estan en el archivo', ()=>{
-    return mdLinks.validarRuta("README.md").then((res) => {
-      expect(res.length).toBe(5);
+  it('Debe retornar un arreglo con el siguiente elemento', () => {
+    return mdLinks("README.md", {validate: true}).then((res) => {
+      expect(res).toStrictEqual([{"file": "README.md", "href": "https://www.youtube.com/watch?v=lPPgY3HLlhQ", "ok": true, "status": 200, "text": "Recursión."}]);
     });
-  })
-});
+  });
 
-describe('debe retornar el proceso de principal de validar ruta de archivo', () => {
-
-  it ('debe leer un archivo de la ruta e indicar si la ruta es valida', ()=>{
-    return mdLinks.PvalidarRuta("README.md").then((res) => {
-      expect(res).toBe(true);
-    });
-  })
 });
