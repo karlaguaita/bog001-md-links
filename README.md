@@ -16,7 +16,7 @@ la información que se quiere compartir.
 
 
 ## 
-![md-links](src/flujograma.png)
+![md-links](flujograma.png)
 
 
 
