@@ -1,4 +1,30 @@
 {
-  "name": "md-links",
-  "version": "0.1.0"
+  "name": "@karlaguaita/md-links",
+  "description": "libreria para extraer rutas de archivos md",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karlaguaita/bog001-md-links"
+  },
+  "keywords": ["rutas","md-links","links","Markdown Links"],
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "marked": "^1.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "bin": {
+    "md-links": "./cli.js"
+  },
+  "author": "Karla Guaita",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/karlaguaita/bog001-md-links/issues"
+    },
+    "homepage": "https://github.com/karlaguaita/bog001-md-links"
+  
+
 }
